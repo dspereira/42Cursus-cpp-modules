@@ -11,7 +11,7 @@ RM				= rm -f
 
 
 %.o: %.cpp
-	${CPP} ${CPPFLAGS} -c $< -o $@
+	$(CPP) $(CPPFLAGS) -c $< -o $@
 
 all: $(NAME)
 
