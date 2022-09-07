@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:56:21 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/07 10:40:20 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:24:51 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int main(int argc, char **argv)
 {
-    char teste;
     int i;
     int j;
 
