@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   UserInterface.hpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 14:02:26 by dsilveri          #+#    #+#             */
+/*   Updated: 2022/09/09 16:28:09 by dsilveri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef USERINTERFACE_HPP
+#define USERINTERFACE_HPP
+
+#include <iostream>
+#include "Contact.hpp"
+
+class UserInterface
+{
+    private:
+        std::string getInput(void);
+
+    public:
+        void        execute(void);
+};
+
+#endif

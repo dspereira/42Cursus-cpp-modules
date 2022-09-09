@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:07:02 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/08 16:14:50 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:30:51 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,5 @@ void	Contact::print(void)
 	std::cout << this->getNickname() << std::endl;
 	std::cout << this->getPhoneNumber() << std::endl;
 	std::cout << this->getDarkestSecret() << std::endl;	
-}
-
-int main(void)
-{
-	Contact contact;
-
-	contact.setFirstName("Jonh");
-	contact.setLastName("snow");
-	contact.setNickname("Jsnow");
-	contact.setPhoneNumber("9968836334");
-	contact.setDarkestSecret("Winter is coming");
-	contact.print();
+	
 }
