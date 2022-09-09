@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:02:26 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/09 16:28:09 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/09 19:14:51 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 #define USERINTERFACE_HPP
 
 #include <iostream>
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 class UserInterface
 {
-    private:
-        std::string getInput(void);
+	private:
+		PhoneBook	phoneBook;
+		Contact		contact;
+		
+		std::string	getInput(void);
 
-    public:
-        void        execute(void);
+	public:
+		void        execute(void);
 };
 
 #endif
