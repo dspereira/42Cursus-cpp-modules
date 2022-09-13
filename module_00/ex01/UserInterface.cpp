@@ -6,12 +6,11 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:37:20 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/09 19:16:54 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/13 12:37:12 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "UserInterface.hpp"
-
 
 void UserInterface::execute(void)
 {
@@ -35,7 +34,11 @@ void UserInterface::execute(void)
 		phoneBook.addNewContact(contact);
 	}
 	else if (!input.compare("SEARCH"))
-		std::cout << input << std::endl;
+	{
+		phoneBook.printAllContacts();
+		
+		std::cout << "select the index: ";
+	}
 }
 
 std::string UserInterface::getInput(void)

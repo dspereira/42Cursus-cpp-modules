@@ -2,6 +2,7 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include "Contact.hpp"
 
 #define MAX_NUM_CONTACTS    8
@@ -10,14 +11,14 @@ class PhoneBook {
     private:
         int numberOfContacts;
         Contact contacts[8];
+        std::string getTruncatedStr(std::string str);
 
     public:
         PhoneBook(){
-           setNumberOfContacts(0);
+           this->numberOfContacts = 0;
         }
-        void    addNewContact(Contact contact);
-        void    setNumberOfContacts(int numberOfContacts);
-		int     getNumberOfContacts(void);
+        void    addNewContact(const Contact& contact);
+        void    printAllContacts();     
 };
 
 #endif
