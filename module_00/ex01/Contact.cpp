@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:07:02 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/12 17:36:38 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:50:22 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,12 @@ void		Contact::setDarkestSecret(std::string darkestSecret){
 std::string	Contact::getDarkestSecret(void) const {
 	return (this->darkestSecret);
 }
-/*
-void	Contact::print(void) const
-{
-	std::cout << "+++++++++++++++++++++++++++++\n" << std::endl;
-	std::cout << this->getFirstName() << std::endl;
-	std::cout << this->getLastName() << std::endl;
-	std::cout << this->getNickname() << std::endl;
-	std::cout << this->getPhoneNumber() << std::endl;
-	std::cout << this->getDarkestSecret() << std::endl;		
-}
-*/
 
 void	Contact::print(void) const
 {
-	std::cout << "+++++++++++++++++++++++++++++\n" << std::endl;
-	std::cout << this->getFirstName();
-	std::cout << this->getLastName();
-	std::cout << this->getNickname();
-	std::cout << this->getPhoneNumber();
-	std::cout << this->getDarkestSecret();
-	std::cout << std::endl;		
+	std::cout << "First Name     : " << this->getFirstName() << std::endl;
+	std::cout << "Last Name      : " << this->getLastName() << std::endl;
+	std::cout << "Nickname       : " << this->getNickname() << std::endl;
+	std::cout << "Phone number   : " << this->getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret : " << this->getDarkestSecret() << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:37:20 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/13 12:37:12 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:38:27 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void UserInterface::execute(void)
 {
-	std::string input;
+	std::string	input;
+	int			inputInt;
 	
 	input = getInput();
 	if (!input.compare("EXIT"))
@@ -36,8 +37,18 @@ void UserInterface::execute(void)
 	else if (!input.compare("SEARCH"))
 	{
 		phoneBook.printAllContacts();
-		
 		std::cout << "select the index: ";
+		input = getInput();
+		if (input.length() > 1)
+			std::cout << "invalid index" << std::endl;
+		else
+		{
+			inputInt = convertStringToInt(input);
+			if (inputInt > 0 && inputInt <= phoneBook.getNumberOfContacts())
+				phoneBook.printContactByIndex(inputInt - 1);
+			else
+				std::cout << "invalid index" << std::endl;
+		}
 	}
 }
 

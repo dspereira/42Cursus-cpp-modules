@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:02:57 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/13 11:19:29 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:55:33 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,34 @@ void PhoneBook::printAllContacts(void)
 {
 	Contact c;
 
-	std::cout << "+---------+----------+----------+----------+" << std::endl;
-	std::cout << std::setw(10) << "index" << "|"
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|"
+			  << std::setw(10) << "index" << "|"
 			  << std::setw(10) << "first name" << "|"
 			  << std::setw(10) << "last name" << "|"
 			  << std::setw(10) << "nickname" << "|"
 			  << std::endl;
-	std::cout << "+---------+----------+----------+----------+" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
 	for(int i = 0; i < this->numberOfContacts; i++)
 	{
 		c = contacts[i];
-		std::cout << std::setw(10) << i << "|"
+		std::cout << "|"
+				  << std::setw(10) << i + 1 << "|"
 				  << std::setw(10) << getTruncatedStr(c.getFirstName()) << "|"
 				  << std::setw(10) << getTruncatedStr(c.getLastName()) << "|"
 				  << std::setw(10) << getTruncatedStr(c.getNickname()) << "|"
 				  << std::endl;
-		std::cout << "+---------+----------+----------+----------+" << std::endl;
+		std::cout << "+----------+----------+----------+----------+" << std::endl;
 	}
+}
+
+void PhoneBook::printContactByIndex(int index)
+{
+	if (index >=0 && index < getNumberOfContacts())
+		this->contacts[index].print();
+}
+
+int PhoneBook::getNumberOfContacts(void)
+{
+	return (this->numberOfContacts);
 }

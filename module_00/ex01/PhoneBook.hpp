@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include "Contact.hpp"
+#include "utils.hpp"
 
 #define MAX_NUM_CONTACTS    8
 
@@ -18,7 +19,9 @@ class PhoneBook {
            this->numberOfContacts = 0;
         }
         void    addNewContact(const Contact& contact);
-        void    printAllContacts();     
+        void    printAllContacts();
+        void    printContactByIndex(int index);
+        int     getNumberOfContacts();
 };
 
 #endif
