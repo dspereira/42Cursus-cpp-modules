@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 10:07:02 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/13 14:50:22 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/16 10:31:15 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ std::string	Contact::getDarkestSecret(void) const {
 
 void	Contact::print(void) const
 {
-	std::cout << "First Name     : " << this->getFirstName() << std::endl;
-	std::cout << "Last Name      : " << this->getLastName() << std::endl;
-	std::cout << "Nickname       : " << this->getNickname() << std::endl;
-	std::cout << "Phone number   : " << this->getPhoneNumber() << std::endl;
-	std::cout << "Darkest secret : " << this->getDarkestSecret() << std::endl;
+	std::cout << "First Name      : " << this->getFirstName() << std::endl;
+	std::cout << "Last Name       : " << this->getLastName() << std::endl;
+	std::cout << "Nickname        : " << this->getNickname() << std::endl;
+	std::cout << "Phone number    : " << this->getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret  : " << this->getDarkestSecret() << std::endl;
 }

@@ -6,11 +6,12 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:17:05 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/13 13:37:29 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:49:31 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
+#include <iostream>
 
 int convertStringToInt(std::string str)
 {
@@ -37,4 +38,14 @@ int convertStringToInt(std::string str)
     return ((int)(num * mult));
 }
 
+void rightTrim(std::string& str)
+{
+	int i;
 
+	i = str.length() - 1;
+	if (!isspace(str[i]))
+		return ;
+	while (i >= 0 && isspace(str[i]))
+		i--;
+	str.erase(++i, str.length() - 1);
+}
