@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:37:20 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/19 11:48:25 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:55:38 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void UserInterface::execute(void)
 {
 	std::string	input;
-	int			inputInt;
 
 	input = getInput("Write an option (ADD, SEARCH or EXIT): ");
 	system("clear");
