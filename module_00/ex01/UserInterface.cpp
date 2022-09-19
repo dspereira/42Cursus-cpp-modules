@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 11:37:20 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/16 12:14:24 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/19 11:48:25 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,60 +16,70 @@ void UserInterface::execute(void)
 {
 	std::string	input;
 	int			inputInt;
-	
-	std::cout << "Write an option (ADD, SEARCH or EXIT): ";
-	input = getInput();
-	//system("clear");
+
+	input = getInput("Write an option (ADD, SEARCH or EXIT): ");
+	system("clear");
 	if (!input.compare("EXIT"))
 		exit(0);
 	else if (!input.compare("ADD"))
-	{
-		std::cout << "Fill in the required fields" << std::endl;
-		std::cout << "First name: ";
-		contact.setFirstName(getInput());
-		std::cout << "Last name: ";
-		contact.setLastName(getInput());
-		std::cout << "Nikname: ";
-		contact.setNickname(getInput());
-		std::cout << "Phone number: ";
-		contact.setPhoneNumber(getInput());
-		std::cout << "Darkest secret: ";
-		contact.setDarkestSecret(getInput());
-		phoneBook.addNewContact(contact);
-	}
+		addContact();
 	else if (!input.compare("SEARCH"))
-	{
-		if (!phoneBook.getNumberOfContacts())
-			std::cout << "The list of contacts is empty" << std::endl;
-		else
-		{
-			phoneBook.printAllContacts();
-			std::cout << "select the index: ";
-			input = getInput();
-			if (input.length() > 1)
-				std::cout << "Invalid index" << std::endl;
-			else
-			{
-				inputInt = convertStringToInt(input);
-				if (inputInt > 0 && inputInt <= phoneBook.getNumberOfContacts())
-				{
-					phoneBook.printContactByIndex(inputInt - 1);
-					std::cout << std::endl;
-				}
-				else
-					std::cout << "Invalid index" << std::endl;
-			}
-		}
-	}
+		search();
 	else
 		std::cout << "The typed option is not valid: " << input << std::endl;
 }
 
-std::string UserInterface::getInput(void)
+void UserInterface::addContact(void)
+{
+	Contact		contact;
+
+	putString("Fill in the required fields");
+	contact.setFirstName(getInput("First name: "));
+	contact.setLastName(getInput("Last name: "));
+	contact.setNickname(getInput("Nikname: "));
+	contact.setPhoneNumber(getInput("Phone number: "));
+	contact.setDarkestSecret(getInput("Darkest secret: "));
+	this->phoneBook.addNewContact(contact);
+}
+
+void UserInterface::search(void)
+{
+	std::string	input;
+	int			inputInt;
+
+	if (!phoneBook.getNumberOfContacts())
+		putString("The list of contacts is empty");
+	else
+	{
+		phoneBook.printAllContacts();
+		input = getInput("select the index: ");
+		if (input.length() > 1)
+			putString("Invalid index");
+		else
+		{
+			inputInt = convertStringToInt(input);
+			if (inputInt > 0 && inputInt <= phoneBook.getNumberOfContacts())
+			{
+				phoneBook.printContactByIndex(inputInt - 1);
+				std::cout << std::endl;
+			}
+			else
+				putString("Invalid index");
+		}
+	}
+}
+
+std::string UserInterface::getInput(std::string msg)
 {
 	std::string input;
 
+	std::cout << msg;
 	getline(std::cin >> std::ws, input);
 	rightTrim(input);
 	return (input);
+}
+
+void UserInterface::putString(std::string msg)
+{
+	std::cout << msg << std::endl;
 }

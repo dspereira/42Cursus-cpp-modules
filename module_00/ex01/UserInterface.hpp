@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:02:26 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/13 13:39:35 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/19 11:48:23 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ class UserInterface
 {
 	private:
 		PhoneBook	phoneBook;
-		Contact		contact;
 		
-		std::string	getInput(void);
+		void		addContact(void);
+		void		search(void);
+		std::string getInput(std::string msg);
+		void		putString(std::string msg);
 
 	public:
 		void        execute(void);
