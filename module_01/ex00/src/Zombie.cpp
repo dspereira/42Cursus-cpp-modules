@@ -6,11 +6,17 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:13:55 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/20 12:55:46 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:22:37 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie(void){
+	this->name = "not defined";
+}
+
+Zombie::Zombie(std::string name): name(name) {};
 
 Zombie::~Zombie(void){
 	std::cout << this->name << ": destructor" << std::endl;

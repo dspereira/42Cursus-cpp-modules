@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:13:47 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/20 12:53:15 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:23:08 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ class Zombie {
 		std::string name;
 
 	public:
-		Zombie(std::string name): name(name) {};
+		Zombie(void);
+		Zombie(std::string name);
 		~Zombie(void);
 		void announce(void);
 };
