@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:12:20 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/21 13:52:40 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:04:41 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int main(void)
 		club.setType("some other type of club");
 		jim.attack();
 	}
-
 	return (0);
 }
