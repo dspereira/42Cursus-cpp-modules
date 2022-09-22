@@ -1,0 +1,8 @@
+Replace string for whatever! Or any other word you want.
+
+string class
+strings are objects that represent sequences of characters. string
+The standard string class provides support for string such objects with an interface similar to string that of a standard 
+container of bytes, but adding string features specifically designed to operate with strings of single-byte characters.
+The string class is an instantiation of the basic_string class template that uses char (i.e., bytes) as 
+its character type, with its string default char_traits and allocator types (see basic_string for more info on the template).
