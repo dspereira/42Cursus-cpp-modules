@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:24:31 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/27 14:23:06 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:34:35 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::Fixed(const int n):
 }
 
 Fixed::Fixed(const float n): 
-	fixedPointNum((int) round(n * (1 << this->FRACTIONAL_BITS)))
+	fixedPointNum((int) roundf(n * (1 << this->FRACTIONAL_BITS)))
 {
 	std::cout << "Float constructor called" << std::endl;
 }
