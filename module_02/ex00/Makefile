@@ -1,13 +1,14 @@
 
-NAME			= harlFilter
+NAME			= fixedPoint
 
-SRCS			= ./src/Harl.cpp \
+SRCS			= ./src/Fixed.cpp \
 				  ./src/main.cpp
 
 OBJS		    = $(SRCS:.cpp=.o)
 
 CPP				= g++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+#CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -std=c++98
 RM				= rm -f
 
 
