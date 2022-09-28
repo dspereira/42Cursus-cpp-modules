@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:24:31 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/28 12:14:17 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:28:13 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,30 +105,30 @@ bool Fixed::operator!=(const Fixed& other) const
 	return (this->getRawBits() != other.getRawBits());
 }
 
-Fixed Fixed::operator++()
+Fixed& Fixed::operator++()
 {
 	this->setRawBits(this->getRawBits() + 1);
-	return(Fixed (*this));
+	return (*this);
 }
 
 Fixed Fixed::operator++(int)
 {
 	Fixed n(*this);
 	this->setRawBits(this->getRawBits() + 1);
-	return(n);
+	return (n);
 }
 
-Fixed Fixed::operator--()
+Fixed& Fixed::operator--()
 {
 	this->setRawBits(this->getRawBits() - 1);
-	return(Fixed (*this));
+	return (*this);
 }
 
 Fixed Fixed::operator--(int)
 {
 	Fixed n(*this);
 	this->setRawBits(this->getRawBits() - 1);
-	return(n);
+	return (n);
 }
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
