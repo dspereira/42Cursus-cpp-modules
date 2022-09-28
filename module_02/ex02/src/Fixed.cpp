@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:24:31 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/28 11:23:44 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:14:17 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ int Fixed::toInt(void) const
 	return (this->getRawBits() >> this->FRACTIONAL_BITS);
 }
 
-void Fixed::operator=(const Fixed& other)
+Fixed& Fixed::operator=(const Fixed& other)
 {
-	this->setRawBits(other.getRawBits());
+	if (this != &other)
+		this->setRawBits(other.getRawBits());
+	return (*this);
 }
 
 Fixed Fixed::operator+(const Fixed& other) const

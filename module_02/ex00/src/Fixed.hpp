@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:24:36 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/27 10:03:54 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:15:48 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Fixed
 		Fixed(void);
 		Fixed(const Fixed& other);
 		~Fixed(void);
-		void operator=(const Fixed& other);
+		Fixed& operator=(const Fixed& other);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
