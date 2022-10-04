@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 09:05:21 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/04 12:28:21 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:54:09 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(void):
 	_name(""),
 	hitPoits(10),
 	energyPoints(10),
-	attckDamage(0)
+	attackDamage(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string name):
 	_name(name),
 	hitPoits(10),
 	energyPoints(10),
-	attckDamage(0)
+	attackDamage(0)
 {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -48,7 +48,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 		this->_name = other._name;
 		this->hitPoits = other.hitPoits;
 		this->energyPoints = other.energyPoints;
-		this->attckDamage = other.attckDamage;
+		this->attackDamage = other.attackDamage;
 	}
 	return (*this);
 }
@@ -65,7 +65,7 @@ void ClapTrap::attack(const std::string& target)
 		msg = " has no health to attack";
 	else {
 		msg = " attacks ";
-		msg += target + ", causing " + convertNumtoString(this->attckDamage);
+		msg += target + ", causing " + convertNumtoString(this->attackDamage);
 		msg += " points of damage!";
 		this->energyPoints--;
 	}

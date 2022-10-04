@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 09:42:46 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/04 13:54:33 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:49:03 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
     this->hitPoits = 100;
     this->energyPoints = 50;
-    this->attckDamage = 20;
+    this->attackDamage = 20;
 	std::cout << "ScavTrap " << this->_name << ": "
 			  << "Constructor called" 
 			  << std::endl;
@@ -45,14 +45,14 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	std::cout << "ScavTrap " << this->_name << ": "
-			  << "Copy assignment operator called" << std::endl;
 	if (this != &other){
 		this->_name = other._name;
 		this->hitPoits = other.hitPoits;
 		this->energyPoints = other.energyPoints;
-		this->attckDamage = other.attckDamage;
+		this->attackDamage = other.attackDamage;
 	}
+	std::cout << "ScavTrap " << this->_name << ": "
+			  << "Copy assignment operator called" << std::endl;
 	return (*this);	
 }
 
@@ -68,7 +68,7 @@ void ScavTrap::attack(const std::string& target)
 		msg = " has no health to attack";
 	else {
 		msg = " attacks ";
-		msg += target + ", causing " + convertNumtoString(this->attckDamage);
+		msg += target + ", causing " + convertNumtoString(this->attackDamage);
 		msg += " points of damage!";
 		this->energyPoints--;
 	}
