@@ -6,14 +6,14 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 09:05:21 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/30 16:18:39 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:28:21 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void):
-	name(""),
+	_name(""),
 	hitPoits(10),
 	energyPoints(10),
 	attckDamage(0)
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(void):
 }
 
 ClapTrap::ClapTrap(std::string name):
-	name(name),
+	_name(name),
 	hitPoits(10),
 	energyPoints(10),
 	attckDamage(0)
@@ -45,7 +45,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other){
-		this->name = other.name;
+		this->_name = other._name;
 		this->hitPoits = other.hitPoits;
 		this->energyPoints = other.energyPoints;
 		this->attckDamage = other.attckDamage;
@@ -69,7 +69,7 @@ void ClapTrap::attack(const std::string& target)
 		msg += " points of damage!";
 		this->energyPoints--;
 	}
-	std::cout << "ClapTrap " << this->name << msg << std::endl;
+	std::cout << "ClapTrap " << this->_name << msg << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -78,7 +78,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		this->hitPoits = 0;
 	else 
 		this->hitPoits -= amount;
-	std::cout << "ClapTrap " << this->name 
+	std::cout << "ClapTrap " << this->_name 
 			  << " receives " << amount << " points of damage!. ";
 	if (this->hitPoits)
 		std::cout << "He has " << this->hitPoits << " health and " 
@@ -108,5 +108,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 		this->energyPoints--;
 		this->hitPoits += amount;
 	}
-	std::cout << "ClapTrap " << this->name << msg << std::endl;
+	std::cout << "ClapTrap " << this->_name << msg << std::endl;
 }

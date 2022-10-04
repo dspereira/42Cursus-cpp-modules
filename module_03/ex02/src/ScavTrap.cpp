@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 09:42:46 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/03 15:16:07 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:54:33 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,31 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 			  << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
+{
+	std::cout << "ScavTrap " << this->_name << ": "
+			  << "Copy operator called" << std::endl;
+	(*this) = other;
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap " << this->_name << ": "
 			  << "Destructor called" 
 			  << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	std::cout << "ScavTrap " << this->_name << ": "
+			  << "Copy assignment operator called" << std::endl;
+	if (this != &other){
+		this->_name = other._name;
+		this->hitPoits = other.hitPoits;
+		this->energyPoints = other.energyPoints;
+		this->attckDamage = other.attckDamage;
+	}
+	return (*this);	
 }
 
 void ScavTrap::attack(const std::string& target)

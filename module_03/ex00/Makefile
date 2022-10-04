@@ -1,14 +1,14 @@
 
 NAME			= ClapTrap
 
-SRCS			= ./src/ClapTrap.cpp \
-				  ./src/utils.cpp	\
+SRCS			= ./src/ClapTrap.cpp	\
+				  ./src/utils.cpp		\
 				  ./src/main.cpp
 
 OBJS		    = $(SRCS:.cpp=.o)
 
 CPP				= g++
-CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
 

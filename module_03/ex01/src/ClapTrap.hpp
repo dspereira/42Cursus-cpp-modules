@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 08:46:50 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/03 12:23:01 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:31:09 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class ClapTrap
 {
 	protected:
-		std::string		name;
+		std::string		_name;
 		unsigned int	hitPoits;
 		unsigned int	energyPoints;
 		unsigned int	attckDamage;
