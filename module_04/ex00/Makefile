@@ -12,7 +12,6 @@ OBJS		    = $(SRCS:.cpp=.o)
 
 CPP				= g++
 CPPFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
-#CPPFLAGS		= -std=c++98
 RM				= rm -f
 
 
