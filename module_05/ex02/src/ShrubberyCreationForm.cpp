@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 09:20:17 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/15 18:04:21 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:30:47 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,27 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	if (executor.getGrade() > this->getGradeToExec())
-		throw GradeTooLowException();
-	else if (!(this->getIsSigned()))
+	std::fstream file;
+	std::string fileName;
+
+	if (!(this->getIsSigned()))
 		throw NotSignedException();
+	else if (executor.getGrade() > this->getGradeToExec())
+		throw GradeTooLowException();
 
-	std::cout << "form was executed" << std::endl;
-
-std::cout << "       _-_       " << std::endl;
-std::cout << "    /~~   ~~\\    " << std::endl;
-std::cout << " /~~         ~~\\ " << std::endl;
-std::cout << "{               }" << std::endl;
-std::cout << " \\  _-     -_  / " << std::endl;
-std::cout << "   ~  \\ //  ~   " << std::endl;
-std::cout << "_- -   | | _- _  " << std::endl;
-std::cout << "  _ -  | |   -_  " << std::endl;
-std::cout << "      // \\      " << std::endl;
-
+	fileName = this->_target + "_shrubbery";
+	file.open(fileName.c_str(), std::ios::out);
+	if (file.is_open())
+	{
+		file << "       _-_       " << std::endl
+			 << "    /~~   ~~\\    " << std::endl
+			 << " /~~         ~~\\ " << std::endl
+			 << "{               }" << std::endl
+			 << " \\  _-     -_  / " << std::endl
+			 << "   ~  \\ //  ~   " << std::endl
+			 << "_- -   | | _- _  " << std::endl
+			 << "  _ -  | |   -_  " << std::endl
+			 << "      // \\      " << std::endl;
+		file.close();
+	}
 }

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 08:55:38 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/16 11:12:33 by dsilveri         ###   ########.fr       */
+/*   Created: 2022/10/16 11:37:29 by dsilveri          #+#    #+#             */
+/*   Updated: 2022/10/16 11:40:18 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
 #include <string>
-#include <fstream>
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm: public Form
+class RobotomyRequestForm: public Form
 {
 	private:
 		std::string _target;
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string target);
-		ShrubberyCreationForm(const ShrubberyCreationForm& other);
-		~ShrubberyCreationForm();
-		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm& other);
+		~RobotomyRequestForm();
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 		void execute(Bureaucrat const & executor) const;
 };
 
