@@ -12,8 +12,7 @@ SRCS			= ./src/Bureaucrat.cpp				\
 OBJS		    = $(SRCS:.cpp=.o)
 
 CPP				= g++
-#CPPFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
-CPPFLAGS		= -g -std=c++98
+CPPFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
 
