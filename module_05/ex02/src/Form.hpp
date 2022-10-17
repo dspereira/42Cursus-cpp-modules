@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 14:49:25 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/15 17:25:36 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:57:20 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Form
 		Form();
 		Form(std::string _name, int _gradeToSign, int _gradeToExec);
 		Form(const Form& other);
-		~Form();
+		virtual ~Form();
 		Form& operator=(const Form& other);
 		std::string getName() const;
 		int getGradeToSign() const;

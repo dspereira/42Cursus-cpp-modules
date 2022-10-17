@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:51:53 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/16 17:42:16 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:06:32 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ void testPresidentialPardonForm(void)
 	kyle.executeForm(form);
 	std::cout <<  std::endl;
 	john.executeForm(form);
-	std::cout <<  std::endl;
+	std::cout << std::endl;
 }
 
 int main (void)
 {
 	try {
 		testShrubberyCreationForm();
-		testRobotomyRequestForm();
-		testPresidentialPardonForm();
+		//testRobotomyRequestForm();
+		//testPresidentialPardonForm();
 	}
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;

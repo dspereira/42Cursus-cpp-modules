@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:02:41 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/15 15:39:04 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:59:09 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec):
 	std::cout << "Form constutor called" << std::endl;
 }
 
-Form::Form(const Form& other): 
+Form::Form(const Form& other):
 	_name(other.getName()),
 	_isSigned(other.getIsSigned()),
 	_gradeToSign(other.getGradeToSign()),
@@ -117,7 +117,6 @@ std::ostream& operator<<(std::ostream& stream, const Form& other)
 	stream << "Form: " << other.getName() << std::endl
 		   << "Signed: " << signMsg << std::endl
 		   << "Grade to sign it: " << other.getGradeToSign() << std::endl
-		   << "Grade to execute it: " << other.getGradeToExec() << std::endl
-		   << std::endl;
+		   << "Grade to execute it: " << other.getGradeToExec() << std::endl;
 	return (stream);
 }
