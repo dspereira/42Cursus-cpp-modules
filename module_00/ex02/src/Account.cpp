@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:23:41 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/17 20:38:25 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:44:13 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,33 @@ std::cout << (1900 + time->tm_year) << "------";
    std::cout << time->tm_sec;
 */
 
+static void printFormatedNb(int nb)
+{
+	if (nb < 10)
+		std::cout << "0";
+	std::cout <<  nb;
+}
+
+static void printTime(void)
+{
+	time_t 		actualTimestamp;
+	tm 			*timeTm;
+
+	actualTimestamp = time(0);
+	timeTm = localtime(&actualTimestamp);
+	std::cout << "[" <<  timeTm->tm_year + 1900;
+	printFormatedNb(timeTm->tm_mon + 1);
+	printFormatedNb(timeTm->tm_mday);
+	std::cout << "_";
+	printFormatedNb(timeTm->tm_hour);
+	printFormatedNb(timeTm->tm_min);
+	printFormatedNb(timeTm->tm_sec);
+	std::cout << "] ";
+
+	//DEBUG
+	//std::cout << "[19920104_091532] ";
+}
+
 Account::Account(int initial_deposit):
 	_accountIndex(_nbAccounts),
 	_amount(initial_deposit),
@@ -38,9 +65,9 @@ Account::Account(int initial_deposit):
 {
 	_nbAccounts++;
 	_totalAmount += this->_amount;
-	
-	std::cout << "[19920104_091531] "
-			  << "index:" << this->_accountIndex << ";"
+	 
+	printTime();
+	std::cout << "index:" << this->_accountIndex << ";"
 			  << "amount:" << this->_amount << ";"
 			  << "created" << std::endl;
 }
@@ -48,17 +75,16 @@ Account::Account(int initial_deposit):
 Account::~Account(void)
 {
 	_nbAccounts--;
-	
-	std::cout << "[19920104_091531] "
-			  << "index:" << this->_accountIndex << ";"
+	printTime();
+	std::cout << "index:" << this->_accountIndex << ";"
 			  << "amount:" << this->_amount << ";"
 			  << "closed" << std::endl;
 }
 
 void	Account::makeDeposit( int deposit )
 {
-	std::cout << "[19920104_091531] "
-			  << "index:" << this->_accountIndex << ";"
+	printTime();
+	std::cout << "index:" << this->_accountIndex << ";"
 			  << "p_amount:" << this->_amount << ";"
 			  << "deposit:" << deposit << ";";
 
@@ -75,9 +101,9 @@ void	Account::makeDeposit( int deposit )
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	bool wasMade;
-
-	std::cout << "[19920104_091531] "
-			  << "index:" << this->_accountIndex << ";"
+	
+	printTime();
+	std::cout << "index:" << this->_accountIndex << ";"
 			  << "p_amount:" << this->_amount << ";";
 
 	wasMade = false;
@@ -107,8 +133,8 @@ int		Account::checkAmount( void ) const
 
 void	Account::displayStatus( void ) const
 {
-	std::cout << "[19920104_091531] "
-			  << "index:" << this->_accountIndex << ";"
+	printTime();
+	std::cout << "index:" << this->_accountIndex << ";"
 			  << "amount:" << this->_amount << ";"
 			  << "deposits:" << this->_nbDeposits << ";"
 			  << "withdrawals:" << this->_nbWithdrawals
@@ -142,8 +168,8 @@ int	Account::getNbWithdrawals(void)
 
 void	Account::displayAccountsInfos(void)
 {
-	std::cout << "[19920104_091531] "
-			  << "accounts:" << _nbAccounts << ";"
+	printTime();
+	std::cout << "accounts:" << _nbAccounts << ";"
 			  << "total:" << _totalAmount << ";"
 			  << "deposits:" << _totalNbDeposits << ";"
 			  << "withdrawals:" << _totalNbWithdrawals

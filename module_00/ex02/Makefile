@@ -7,8 +7,7 @@ SRCS			= ./src/Account.cpp	\
 SRCS_OBJS		= $(SRCS:.cpp=.o)
 
 CPP				= g++
-#CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
-CPPFLAGS		= -std=c++98
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
 
