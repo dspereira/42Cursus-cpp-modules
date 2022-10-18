@@ -6,29 +6,13 @@
 /*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:23:41 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/18 14:44:13 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:51:29 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-//#include <chrono>
 #include <ctime>
 #include "Account.hpp"
-
-
-/*
-
-https://www.tutorialspoint.com/cplusplus/cpp_date_time.htm
-time_t now = time(0);
-tm *time = localtime(&now);
-
-std::cout << (1900 + time->tm_year) << "------";
-   std::cout << "Month: "<< 1 + time->tm_mon;
-   std::cout << "Day: "<< time->tm_mday;
-   std::cout << "Time: "<< 5+time->tm_hour << ":";
-   std::cout << 30+time->tm_min << ":";
-   std::cout << time->tm_sec;
-*/
 
 static void printFormatedNb(int nb)
 {
