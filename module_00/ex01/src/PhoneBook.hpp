@@ -11,13 +11,13 @@
 class PhoneBook {
     private:
         int numberOfContacts;
-        Contact contacts[8];
+        int numberOfContactsSaved;
+        Contact contacts[MAX_NUM_CONTACTS];
         std::string getTruncatedStr(std::string str);
 
     public:
-        PhoneBook(){
-           this->numberOfContacts = 0;
-        }
+        PhoneBook();
+        ~PhoneBook();
         void    addNewContact(const Contact& contact);
         void    printAllContacts();
         void    printContactByIndex(int index);

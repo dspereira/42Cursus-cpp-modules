@@ -12,11 +12,21 @@
 
 #include "PhoneBook.hpp"
 
+PhoneBook::PhoneBook():
+	numberOfContacts(0),
+	numberOfContactsSaved(0)
+{}
+
+PhoneBook::~PhoneBook(){}
+
 void PhoneBook::addNewContact(const Contact& contact)
 {
 	if (this->numberOfContacts < MAX_NUM_CONTACTS)
 		(this->numberOfContacts)++;
-	contacts[numberOfContacts - 1] = contact;
+	contacts[this->numberOfContactsSaved] = contact;
+	(this->numberOfContactsSaved)++;
+	if (this->numberOfContactsSaved >= MAX_NUM_CONTACTS)
+		this->numberOfContactsSaved = 0;
 }
 
 std::string PhoneBook::getTruncatedStr(std::string str)

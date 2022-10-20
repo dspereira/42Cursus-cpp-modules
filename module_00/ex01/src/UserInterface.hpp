@@ -22,14 +22,17 @@ class UserInterface
 {
 	private:
 		PhoneBook	phoneBook;
-		
+		Contact		contact;
+
 		void		addContact(void);
 		void		search(void);
 		std::string getInput(std::string msg);
 		void		putString(std::string msg);
 
 	public:
-		void        execute(void);
+		~UserInterface();
+		void execute(void);
+		
 };
 
 #endif

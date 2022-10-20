@@ -12,26 +12,29 @@
 
 #include "UserInterface.hpp"
 
+UserInterface::~UserInterface() {}
+
 void UserInterface::execute(void)
 {
 	std::string	input;
 
-	input = getInput("Write an option (ADD, SEARCH or EXIT): ");
-	system("clear");
-	if (!input.compare("EXIT"))
-		exit(0);
-	else if (!input.compare("ADD"))
-		addContact();
-	else if (!input.compare("SEARCH"))
-		search();
-	else
-		std::cout << "The typed option is not valid: " << input << std::endl;
+	while (1)
+	{
+		input = getInput("Write an option (ADD, SEARCH or EXIT): ");
+		system("clear");
+		if (!input.compare("EXIT"))
+			break;
+		else if (!input.compare("ADD"))
+			addContact();
+		else if (!input.compare("SEARCH"))
+			search();
+		else
+			std::cout << "The typed option is not valid: " << input << std::endl;
+	}
 }
 
 void UserInterface::addContact(void)
 {
-	Contact		contact;
-
 	putString("Fill in the required fields");
 	contact.setFirstName(getInput("First name: "));
 	contact.setLastName(getInput("Last name: "));

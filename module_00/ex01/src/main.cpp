@@ -16,7 +16,7 @@ int main (void)
 {
 	UserInterface interface;
 
-	while (1)
-		interface.execute();
+	//while (1)
+	interface.execute();
 	return (0);
 }

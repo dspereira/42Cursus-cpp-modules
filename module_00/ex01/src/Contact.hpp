@@ -13,6 +13,7 @@ class Contact
 		std::string	darkestSecret;
 
 	public:
+					~Contact();
 		void		setFirstName(std::string firstName);
 		std::string	getFirstName(void) const;
 		void		setLastName(std::string lastName);
