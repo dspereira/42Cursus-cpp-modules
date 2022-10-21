@@ -12,11 +12,15 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void){
-	this->name = "not defined";
+Zombie::Zombie(void): name("")
+{
+	std::cout << this->name << ": default constructor" << std::endl;
 }
 
-Zombie::Zombie(std::string name): name(name) {};
+Zombie::Zombie(std::string name): name(name)
+{
+	std::cout << this->name << ": constructor" << std::endl;
+}
 
 Zombie::~Zombie(void){
 	std::cout << this->name << ": destructor" << std::endl;
