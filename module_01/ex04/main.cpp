@@ -20,7 +20,7 @@ std::string parse_string(std::string src, std::string s1, std::string s2);
 int main(int argc, char **argv)
 {
 	std::fstream	file_src, file_dst;
-	std::string		file_str;
+	std::string		file_all_data;
 
 	if (argc != 4)
 	{
@@ -29,8 +29,8 @@ int main(int argc, char **argv)
 	}
 	if (!open_files(argv[1], file_src, file_dst))
 		return (0);
-	getline(file_src, file_str, '\0');
-	file_dst << parse_string(file_str, argv[2], argv[3]);
+	std::getline(file_src, file_all_data, '\0');
+	file_dst << parse_string(file_all_data, argv[2], argv[3]);
 	file_src.close();
 	file_dst.close();	
 	return (0);
@@ -78,5 +78,3 @@ std::string parse_string(std::string src, std::string s1, std::string s2)
 	}
 	return (dst);
 }
-
-
