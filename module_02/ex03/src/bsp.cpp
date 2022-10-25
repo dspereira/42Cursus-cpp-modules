@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:01:31 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/29 14:28:05 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:53:05 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	a1 = calcTriArea(point, a, b);
 	a2 = calcTriArea(point, b, c);
 	a3 = calcTriArea(point, c, a);
-	//std::cout << "totalArea: " <<totalArea << std::endl;
-	//std::cout << "soma areas: " << a1 + a2 + a3 << std::endl;
+	
 	if (a1 == 0 || a2 == 0 || a3 == 0)
 		return (false);
 	return ((a1 + a2 + a3) == totalArea);

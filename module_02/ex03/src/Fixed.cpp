@@ -6,36 +6,36 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:24:31 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/29 14:24:58 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:42:59 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed(void): 
-	fixedPointNum(0) {}
+	rawBits(0) {}
 
 Fixed::Fixed(const int n): 
-	fixedPointNum(n << this->FRACTIONAL_BITS){}
+	rawBits(n << this->FRACTIONAL_BITS){}
 
 Fixed::Fixed(const float n): 
-	fixedPointNum((int) roundf(n * (1 << this->FRACTIONAL_BITS))) {}
+	rawBits((int) roundf(n * (1 << this->FRACTIONAL_BITS))) {}
 
 Fixed::Fixed(const Fixed& other)
 {
-	this->setRawBits(other.getRawBits());
+	*this = other;
 }
 
 Fixed::~Fixed(void) {}
 
 int Fixed::getRawBits(void) const
 {
-	return (this->fixedPointNum);
+	return (this->rawBits);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->fixedPointNum = raw;
+	this->rawBits = raw;
 }
 
 float Fixed::toFloat(void) const
@@ -92,7 +92,7 @@ bool Fixed::operator>=(const Fixed& other) const
 
 bool Fixed::operator<=(const Fixed& other) const
 {
-	return (this->getRawBits() >= other.getRawBits());
+	return (this->getRawBits() <= other.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed& other) const

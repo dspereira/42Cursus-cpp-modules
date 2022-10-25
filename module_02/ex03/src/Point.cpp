@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 14:06:34 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/29 14:31:13 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:01:36 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 Point::Point(void): 
 	x(Fixed(0)), y(Fixed(0)){}
 
-Point::Point(float x, float y):
-	x(Fixed(x)), y(Fixed(y)){}
+
+Point::Point(const float x, const float y):
+	x(x), y(y){}
+
 
 Point::Point(const Point& other):
 	x(other.getX()), y(other.getY()) {}

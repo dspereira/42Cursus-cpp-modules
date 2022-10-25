@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:24:36 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/09/28 12:15:48 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:10:31 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed
 {
 	private:
-		int fixedPointNum;
+		int rawBits;
 		static const int FRACTIONAL_BITS = 8;
 
 	public:
