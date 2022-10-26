@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIDEDS_H
+#ifndef FIXED_H
 #define FIXED_H
 
 #include <iostream>
