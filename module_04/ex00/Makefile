@@ -10,7 +10,7 @@ SRCS			= ./src/Animal.cpp		\
 
 OBJS		    = $(SRCS:.cpp=.o)
 
-CPP				= g++
+CPP				= c++
 CPPFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 

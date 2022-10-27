@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:42:30 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/06 14:40:27 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:35:02 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongCat: public WrongAnimal
 		~WrongCat();
 		WrongCat& operator=(const WrongCat& other);
 		std::string getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 #endif

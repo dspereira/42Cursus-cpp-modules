@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:17:46 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/06 14:44:53 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:22:08 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,3 @@ int main(void)
     delete wAnimal;
     return (0);
 }
-

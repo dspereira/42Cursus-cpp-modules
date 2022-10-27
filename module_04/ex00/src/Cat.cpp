@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:56:36 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/06 14:12:46 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:22:38 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ Cat& Cat::operator=(const Cat& other)
 
 void Cat::makeSound() const
 {
-    std::cout << "cats don’t bark" << std::endl;
+    std::cout << "cats don't bark" << std::endl;
 }
