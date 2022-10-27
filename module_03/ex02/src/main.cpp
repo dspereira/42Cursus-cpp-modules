@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 08:45:55 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/04 14:01:17 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:33:54 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int main (void)
 	trap1.highFivesGuys();
 	trap2.highFivesGuys();
 	std::cout << std::endl;
+
 	return (0);
 }

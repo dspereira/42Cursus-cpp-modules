@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 08:45:55 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/04 13:52:10 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:08:06 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int main (void)
 	std::cout << std::endl;
 	trap2.guardGate();
 	std::cout << std::endl;
+
 	return (0);
 }

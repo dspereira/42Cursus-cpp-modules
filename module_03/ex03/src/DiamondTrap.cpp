@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 15:39:33 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/04 16:32:58 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:04:05 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ DiamondTrap::DiamondTrap(): _name("")
 
 DiamondTrap::DiamondTrap(std::string name):
 	ClapTrap(name + "_clap_name"),
-	ScavTrap(name),
-	FragTrap(name),
+	ScavTrap(name + "_clap_name"),
+	FragTrap(name + "_clap_name"),
 	_name(name)
 {
 	this->hitPoits = FragTrap::hitPoits;

@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 08:45:55 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/04 18:50:23 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:09:46 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,16 @@
 
 int main (void)
 {	
-	DiamondTrap trap1("trap1");
-	DiamondTrap trap2("trap2");
+	DiamondTrap trap("trap1");
 
 	std::cout << std::endl; 
-	trap1.attack("trap2");
-	trap2.takeDamage(20);
-	trap2.beRepaired(25);
-	trap2.attack("trap1");
-	trap1.takeDamage(200);
-	trap1.attack("trap2");
-	trap1.guardGate();
-	trap1.highFivesGuys();
-	trap1.whoAmI();
-	trap2.whoAmI();
+	trap.attack("trap");
+	trap.takeDamage(20);
+	trap.beRepaired(25);
+	std::cout << std::endl;
+	trap.guardGate();
+	trap.highFivesGuys();
+	trap.whoAmI();	
 	std::cout << std::endl;
 	
 	return (0);
