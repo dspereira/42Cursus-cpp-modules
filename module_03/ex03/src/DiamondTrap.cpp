@@ -14,8 +14,9 @@
 
 DiamondTrap::DiamondTrap(): _name("")
 {
-	this->hitPoits = FragTrap::hitPoits;
-	this->energyPoints = ScavTrap::energyPoints;
+	ScavTrap scav;
+	this->hitPoints = FragTrap::hitPoints;
+	this->energyPoints = scav.getEnergyPoints();
 	this->attackDamage = FragTrap::attackDamage;
 	std::cout << "DiamondTrap " << this->_name << ": "
 			  << "Default constructor called"
@@ -24,12 +25,13 @@ DiamondTrap::DiamondTrap(): _name("")
 
 DiamondTrap::DiamondTrap(std::string name):
 	ClapTrap(name + "_clap_name"),
-	ScavTrap(name + "_clap_name"),
-	FragTrap(name + "_clap_name"),
+	ScavTrap(),
+	FragTrap(),
 	_name(name)
 {
-	this->hitPoits = FragTrap::hitPoits;
-	this->energyPoints = ScavTrap::energyPoints;
+	ScavTrap scav;
+	this->hitPoints = FragTrap::hitPoints;
+	this->energyPoints = scav.getEnergyPoints();
 	this->attackDamage = FragTrap::attackDamage;
 	std::cout << "DiamondTrap " << this->_name << ": "
 			  << "Constructor called"
@@ -38,8 +40,8 @@ DiamondTrap::DiamondTrap(std::string name):
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other):
 	ClapTrap(other._name + "_clap_name"),
-	ScavTrap(other._name),
-	FragTrap(other._name),
+	ScavTrap(),
+	FragTrap(),
 	_name(other._name)
 {
 	std::cout << "DiamondTrap " << this->_name << ": "
@@ -58,7 +60,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
 	if (this != &other){
 		this->_name = other._name;
-		this->hitPoits = other.hitPoits;
+		this->hitPoints = other.hitPoints;
 		this->energyPoints = other.energyPoints;
 		this->attackDamage = other.attackDamage;
 	}

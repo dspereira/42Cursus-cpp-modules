@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-    this->hitPoits = 100;
+    this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
 	std::cout << "ScavTrap " << this->_name << ": "
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-    this->hitPoits = 100;
+    this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
 	std::cout << "ScavTrap " << this->_name << ": "
@@ -50,7 +50,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if (this != &other){
 		this->_name = other._name;
-		this->hitPoits = other.hitPoits;
+		this->hitPoints = other.hitPoints;
 		this->energyPoints = other.energyPoints;
 		this->attackDamage = other.attackDamage;
 	}
@@ -63,11 +63,11 @@ void ScavTrap::attack(const std::string& target)
 {
 	std::string msg;
 
-	if (!this->energyPoints && !this->hitPoits)
+	if (!this->energyPoints && !this->hitPoints)
 		msg = " has no health or energy to attack";
 	else if (!this->energyPoints)
 		msg = " has no energy to attack";
-	else if (!this->hitPoits)
+	else if (!this->hitPoints)
 		msg = " has no health to attack";
 	else {
 		msg = " attacks ";
