@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:06:21 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/30 18:37:32 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:50:46 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ void test2(void)
 	p2.use(2, p1);
 	p3.use(2, p1);
 	p4.use(2, p1);
+
+	delete src;
 }
 
 int main (void)

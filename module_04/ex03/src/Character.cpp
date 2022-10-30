@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:20:26 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/30 18:35:04 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/30 18:54:19 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,10 @@ void Character::use(int idx, ICharacter& target)
 
 void Character::deleteMaterias(void)
 {
-	for (int i = 0; i < this->nbMateriasDroped; i++){
+	for (int i = 0; i < this->nbMateriasDroped; i++)
 		delete this->materiaDroped[i];
-		this->nbMateriasDroped = 0;
-	}
+	this->nbMateriasDroped = 0;
+	
 	for (int i = 0; i < INVENTORY_SIZE; i++){
 		if (this->materiaSlot[i]){
 			delete this->materiaSlot[i];
