@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:17:34 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/10/19 12:08:13 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/10/30 16:09:20 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ class AMateria;
 class ICharacter
 {
 	public:
-		ICharacter() {std::cout << "ICharacter default constutor called" << std::endl;}
-		virtual ~ICharacter() {std::cout << "ICharacter default destructor called" << std::endl;}
+		virtual ~ICharacter() {}
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;
