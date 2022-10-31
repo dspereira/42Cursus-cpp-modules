@@ -44,3 +44,13 @@ void Dog::makeSound() const
 {
     std::cout << "Dogs don't meow" << std::endl;
 }
+
+void Dog::setIdea(std::string idea)
+{
+	this->brain->addNewIdea(idea);
+}
+
+void Dog::showIdea(int index) const
+{
+	this->brain->showIdea(index);
+}

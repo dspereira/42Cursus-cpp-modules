@@ -44,3 +44,13 @@ void Cat::makeSound() const
 {
     std::cout << "Cats don't bark" << std::endl;
 }
+
+void Cat::setIdea(std::string idea)
+{
+	this->brain->addNewIdea(idea);
+}
+
+void Cat::showIdea(int index) const
+{
+	this->brain->showIdea(index);
+}

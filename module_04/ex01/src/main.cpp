@@ -28,10 +28,16 @@ void test_array(void)
 
     for (int i = 0; i < NUMBER_ANIMALS; i++)
     {
-        if (i < NUMBER_ANIMALS / 2)
+        if (i < NUMBER_ANIMALS / 2) {
             animals[i] = new Dog;
-        else 
+            ((Dog *) animals[i])->setIdea("I am a Dog!");
+            ((Dog *) animals[i])->showIdea(0);
+        }
+        else {
             animals[i] = new Cat;
+            ((Cat *) animals[i])->setIdea("I am a Cat!");
+            ((Cat *) animals[i])->showIdea(0);
+        }    
     }
     std::cout << std::endl;
     for (int i = 0; i < NUMBER_ANIMALS; i++)
@@ -59,11 +65,17 @@ void test_copy(void)
     std::cout  << "###############################" << std::endl << std::endl;
 
     Dog d1;
+    d1.setIdea("I am dog");
     Dog d2(d1);
     Cat c1;
+    c1.setIdea("I am cat");
     Cat c2(c1);
 
-    std::cout << std::endl; 
+    d1.showIdea(0);
+    d2.showIdea(0);
+    c1.showIdea(0);
+    c2.showIdea(0);
+    
     d1 = d2;
     c1 = c2;
     std::cout << std::endl; 
@@ -82,7 +94,6 @@ void test_copy_animals(void)
     std::cout << std::endl;
     delete i;
     delete j;
-
 }
 
 int main(void)
@@ -94,4 +105,3 @@ int main(void)
 
     return (0);
 }
-
