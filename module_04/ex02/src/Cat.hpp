@@ -27,6 +27,8 @@ class Cat: public Animal
 		~Cat();
 		Cat& operator=(const Cat& other);
 		void makeSound() const;
+		void setIdea(std::string idea);
+		void showIdea(int index) const;
 };
 
 #endif
