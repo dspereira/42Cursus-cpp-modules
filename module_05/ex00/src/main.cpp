@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:51:53 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/01 15:43:00 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/01 16:08:52 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,6 @@ void test_copy(void)
 	std::cout << Sarah << std::endl;
 	std::cout << clone << std::endl;
 }
-/*
-void tests(void)
-{
-	Bureaucrat John("John", 50);
-	Bureaucrat Sarah("Sarah", 30);
-
-	std::cout << John << std::endl;
-	std::cout << Sarah << std::endl;
-
-	John.incrementGrade();
-	Sarah.decrementGrade();
-
-	std::cout << John << std::endl;
-	std::cout << Sarah << std::endl;
-}
-*/
 
 void test_grade_to_high(void)
 {
