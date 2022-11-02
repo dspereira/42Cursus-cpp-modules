@@ -10,18 +10,18 @@ SRCS			= ./src/Bureaucrat.cpp				\
 
 OBJS		    = $(SRCS:.cpp=.o)
 
-CPP				= g++
-CPPFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
+CXX				= c++
+CXXFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
 
 %.o: %.cpp
-	$(CPP) $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

@@ -112,7 +112,6 @@ std::ostream& operator<<(std::ostream& stream, const Form& other)
 	stream << "Form: " << other.getName() << std::endl
 		   << "Signed: " << signMsg << std::endl
 		   << "Grade to sign it: " << other.getGradeToSign() << std::endl
-		   << "Grade to execute it: " << other.getGradeToExec() << std::endl
-		   << std::endl;
+		   << "Grade to execute it: " << other.getGradeToExec() << std::endl;
 	return (stream);
 }
