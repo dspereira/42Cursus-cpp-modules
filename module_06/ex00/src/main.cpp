@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:03:16 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/11 16:56:54 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:55:31 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int isInt(std::string str)
 	return (1);
 }
 
+/*
 int isFloat(std::string str)
 {
 	int size;
@@ -80,7 +81,47 @@ int isFloat(std::string str)
 		return (0);
 	return (1);
 }
+*/
 
+int isDecimal(std::string str, int size)
+{
+	int signs;
+	int dots;
+	int i;
+
+	i = 0;
+	signs = 0;
+	dots = 0;
+	while (str[i] && i < size)
+	{
+		if ((str[i] < '0' || str[i] > '9') 
+			&& str[i] != '-' && str[i] != '+' && str[i] != '.')
+			return (0);
+		if (str[i] == '-' || str[i] == '+')
+			signs++;
+		if (str[i] == '.')
+			dots++;
+		i++;
+	}
+	if (signs > 1 || dots > 1 || (signs && (str[0] != '-' && str[0] != '+')))
+		return (0);
+	return (1);
+}
+
+int isFloat(std::string str)
+{
+	int s;
+
+	s = str.size();
+	if (isDecimal(str, s - 1) && (str[s - 1] == 'f' || str[s - 1] == 'F'))
+		return (1);
+	return (0);
+}
+
+int isDouble(std::string str)
+{
+	return (isDecimal(str, str.size()));
+}
 
 
 int getType(std::string str)
@@ -91,6 +132,8 @@ int getType(std::string str)
 		return (INT);
 	if (isFloat(str))
 		return (FLOAT);
+	if (isDouble(str))
+		return (DOUBLE);
 	return (0);
 }
 
@@ -100,8 +143,6 @@ int main(int argc, char **argv)
 		std::cout << "Error: Invalid argument" << std::endl;
 
 	std::cout << getType(argv[1]) << std::endl;
-	//std::cout << .3F << std::endl;
-	
 
 	/*std::cout << atoi(argv[1]) << std::endl;
 	std::cout << strtof(argv[1], NULL) << std::endl;
