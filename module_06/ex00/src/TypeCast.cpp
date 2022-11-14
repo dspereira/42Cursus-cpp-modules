@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 17:00:00 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/12 21:05:46 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:48:17 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void TypeCast::setValue(char n)
 	this->typeInt = static_cast<int>(n);
 	this->typeFloat = static_cast<float>(n);
 	this->typeDouble = static_cast<double>(n);
-	std::cout << "char" << std::endl;
+	//std::cout << "char" << std::endl;
 }
 
 void TypeCast::setValue(int n)
@@ -79,7 +79,7 @@ void TypeCast::setValue(int n)
 	this->typeChar = static_cast<char>(n);
 	this->typeFloat = static_cast<float>(n);
 	this->typeDouble = static_cast<double>(n);
-	std::cout << "int" << std::endl;
+	//std::cout << "int" << std::endl;
 }
 
 void TypeCast::setValue(float n)
@@ -88,7 +88,7 @@ void TypeCast::setValue(float n)
 	this->typeInt = static_cast<int>(n);
 	this->typeChar= static_cast<char>(n);
 	this->typeDouble = static_cast<double>(n);
-	std::cout << "float" << std::endl;
+	//std::cout << "float" << std::endl;
 }
 
 void TypeCast::setValue(double n)
@@ -97,7 +97,7 @@ void TypeCast::setValue(double n)
 	this->typeInt = static_cast<int>(n);
 	this->typeFloat = static_cast<float>(n);
 	this->typeChar = static_cast<char>(n);
-	std::cout << "double" << std::endl;
+	//std::cout << "double" << std::endl;
 }
 
 void TypeCast::setControlOverflow(long int n)
@@ -133,28 +133,35 @@ void TypeCast::printDataImpossible(void) const
 	std::cout << "double: " << "impossible" << std::endl;
 }
 
-void TypeCast::printData(void) const
+void TypeCast::printDataSucessCast(void) const
 {
-	/*if ((this->controlOverflow > MAX_INT || this->controlOverflow < MIN_INT))
-	{
-		printDataImpossible();
-		return ;
-	}*/
+	bool intImpossible = false;
 
-	if (this->typeFloat != this->typeFloat)
+	if ((this->typeFloat != this->typeFloat)
+	|| this->typeFloat == strtof("inf", NULL)
+	|| this->typeFloat == strtof("-inf", NULL))
+	{
 		std::cout << "char: " << "impossible" << std::endl;
+		intImpossible = true;
+	}
 	else if (this->typeChar >= 32 && this->typeChar <= 126)
-		std::cout << "char: " << this->typeChar << std::endl;
+		std::cout << "char: '" << this->typeChar << "'" << std::endl;
 	else 
 		std::cout << "char: " << "Non displayable" << std::endl;
-
-	if (this->typeFloat != this->typeFloat)
+	if (intImpossible)
 		std::cout << "int: " << "impossible" << std::endl;
-	else
+	else 
 		std::cout << "int: " << this->typeInt << std::endl;
-
 	std::cout << std::fixed;
     std::cout << std::setprecision(1);	
 	std::cout << "float: " << this->typeFloat << 'f' << std::endl;
 	std::cout << "double: " << this->typeDouble << std::endl;
+}
+
+void TypeCast::printData(void) const
+{
+	if ((this->controlOverflow > MAX_INT || this->controlOverflow < MIN_INT))
+		printDataImpossible();
+	else
+		printDataSucessCast();
 }

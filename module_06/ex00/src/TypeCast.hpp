@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:59:56 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/12 20:47:12 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:44:39 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
 
 #define MAX_INT 2147483647
 #define MIN_INT -2147483647
@@ -28,6 +29,7 @@ class TypeCast
 		double		typeDouble;
 		long int	controlOverflow;
 		void 		printDataImpossible(void) const;
+		void		printDataSucessCast(void) const;
 		
 	public:
 		TypeCast();

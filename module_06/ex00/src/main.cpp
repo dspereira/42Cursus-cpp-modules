@@ -6,12 +6,12 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:03:16 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/12 20:48:08 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:42:28 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include "TypeCast.hpp"
 
 //atoi
@@ -93,22 +93,6 @@ int isChar(std::string str)
 	if (str.size() == 1 && (str[0] < '0' || str[0] > '9'))
 		return (1);
 	return (0);
-}
-
-void printData(const TypeCast& data)
-{
-	int num;
-
-	num = data.getTypeInt();
-	if (num >= 32 && num <= 126)
-		std::cout << "char: " << data.getTypeChar() << std::endl;
-	else 
-		std::cout << "char: " << "Non displayable" << std::endl;
-	std::cout << std::fixed;
-    std::cout << std::setprecision(1);	
-	std::cout << "int: " << data.getTypeInt() << std::endl;
-	std::cout << "float: " << data.getTypeFloat() << 'f' << std::endl;
-	std::cout << "double: " << data.getTypeDouble() << std::endl;
 }
 
 int main(int argc, char **argv)
