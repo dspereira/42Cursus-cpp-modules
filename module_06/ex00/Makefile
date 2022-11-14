@@ -3,12 +3,12 @@ NAME			= conversion
 
 SRCS			= ./src/main.cpp		\
 				  ./src/TypeCast.cpp	\
+				  ./src/utils.cpp		\
 
 OBJS		    = $(SRCS:.cpp=.o)
 
 CXX				= c++
-#CXXFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
-CXXFLAGS		= -std=c++98
+CXXFLAGS		= -Wshadow -Wall -Wextra -Werror -std=c++98
 RM				= rm -f
 
 
