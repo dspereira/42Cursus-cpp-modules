@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/16 17:12:40 by dsilveri          #+#    #+#             */
+/*   Updated: 2022/11/16 17:12:58 by dsilveri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <iostream>
 #include "templates.hpp"
-
 
 void tests(void)
 {
@@ -27,7 +37,6 @@ void tests(void)
 	std::cout << min<float>(a1, b1) << std::endl;
 }
 
-
 int main(void) 
 {
 	int a = 2;
@@ -45,6 +54,5 @@ int main(void)
 	std::cout << "c = " << c << ", d = " << d << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-
 	return 0;
 }
