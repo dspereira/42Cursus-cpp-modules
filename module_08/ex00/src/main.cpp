@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 11:08:46 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/29 10:45:27 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:16:24 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void test(const T& data)
 {
 	try {
 		for(int i = 0; i < 4; i++)
-		std::cout << easyfind(data, i) << std::endl;
+		std::cout << *easyFind(data, i) << std::endl;
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
@@ -37,7 +37,7 @@ int main(void)
 		v.push_back(i);
 		l.push_back(i);
 	}
-
+	
 	std::cout << "Teste vector" << std::endl;
 	test(v);
 	std::cout << std::endl;
