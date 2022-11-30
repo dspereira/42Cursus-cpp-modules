@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:59:50 by dsilveri          #+#    #+#             */
-/*   Updated: 2022/11/29 16:54:34 by dsilveri         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:46:11 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,26 @@ class Span
 		Span(unsigned int size);
 		Span(const Span& other);
 		~Span();
-
-		//Lança excepção se já estiver cheio
+		Span& operator=(const Span& other);
 		void addNumber(int number);
-
-		//Lança excepção se não hover numeros armazenados
+		void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
+
+		class ContainerIsFull: public std::exception {
+			public:
+				const char* what() const throw();
+		};
+		
+		class NoSpanFound: public std::exception {
+			public:
+				const char* what() const throw();
+		};
+
+		class NoCapacity: public std::exception {
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif
