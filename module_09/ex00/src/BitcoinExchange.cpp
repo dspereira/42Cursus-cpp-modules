@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 10:20:57 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/23 15:50:32 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:26:19 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,57 +42,40 @@ void BitcoinExchange::bitcoinExchangeFile(std::string fileName)
 
 	data_file.open(fileName.c_str(), std::ios::in);
 	if (!data_file.is_open())
-		displayError("could not open file.");
+		displayError("could not open file.", NULL);
 	std::getline(data_file, line);
 	while (std::getline(data_file, line))
 		displayDateValue(line);
 	data_file.close();
-
 }
 
-void BitcoinExchange::displayError(std::string error)
+void BitcoinExchange::displayError(std::string error, std::string *param)
 {
-	std::cout << "Error: " << error << std::endl;
+	std::cout << "Error: " << error;
+	if (param)
+		std::cout << " => " << *param;
+	std::cout << std::endl;
 }
 
 void BitcoinExchange::displayDateValue(std::string line)
 {
-	std::string date;
-	float		value;
+	std::string 							date;
+	float									value;
+	float									total;
+	std::map<std::string, double>::iterator	it;
 
 	if (getDateValue(line, date, &value) == -1)
-	{
-		displayError("bad input");
 		return ;
-	}
-	
-}
+	it = bitcoinPrices.lower_bound(date);
 
 
-int BitcoinExchange::getValue(std::string line, float *value)
-{
-	size_t	pos;
 
-	pos = line.find('|');
-
-	if (pos == std::string::npos || line[pos - 1] != ' ' || line[pos + 1] != ' ')
-		return (-1);
-	*value = std::atof(line.substr(pos + 1).c_str());
-	if (*value > 1000)
-		return (-1);
-	return (0);
-}
-
-int	BitcoinExchange::getDate(std::string line, std::string &date)
-{
-	size_t	pos;
-
-	pos = line.find('|');
-
-	if (pos == std::string::npos || line[pos - 1] != ' ' || line[pos + 1] != ' ')
-		return (-1);
-	date = line.substr(0, pos - 1);
-	return (0);
+	std::cout << date << " => ";
+	if (it->first.compare(date) == 0)
+		total = value * it->second;
+	else
+		total = value * (--it)->second;
+	std::cout << value << " = " << total << std::endl;
 }
 
 int BitcoinExchange::getDateValue(std::string line, std::string &date, float *value)
@@ -100,14 +83,22 @@ int BitcoinExchange::getDateValue(std::string line, std::string &date, float *va
 	size_t	pos;
 
 	pos = line.find('|');
-
 	if (pos == std::string::npos || line[pos - 1] != ' ' || line[pos + 1] != ' ')
+	{
+		displayError("bad input", &line);
 		return (-1);
+	}
 	*value = std::atof(line.substr(pos + 1).c_str());
 	if (*value > 1000)
+	{
+		displayError("too large a number.", NULL);
 		return (-1);
-	if (*value < 0)
+	}
+	else if (*value < 0)
+	{
+		displayError("not a positive number.", NULL);
 		return (-1);
+	}
 	date = line.substr(0, pos - 1);
 	return (0);
 }
