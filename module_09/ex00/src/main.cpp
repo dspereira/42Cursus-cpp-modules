@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 11:30:21 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/22 12:47:47 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:55:24 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 int main(void)
 {
 	BitcoinExchange bt("data.csv");
-	std::map<std::string, double>::iterator it;
+
+    bt.bitcoinExchangeFile("input.txt");
+	
+    /*
+    std::map<std::string, double>::iterator it;
 	
 	for (it = bt.bitcoinPrices.begin(); it != bt.bitcoinPrices.end(); ++it)
 	std::cout << it->first << " => " << it->second << '\n';
+    */
 	
 	/*std::map<std::string, int> myMap;
 
