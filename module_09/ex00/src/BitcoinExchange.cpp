@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 10:20:57 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/24 11:34:51 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:01:21 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,50 +31,42 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
 			value = std::atof(line.substr(pos + 1).c_str());
 			this->bitcoinPrices.insert(std::pair <std::string, double>(date, value));
 		}
+		data_file.close();
 	}
-	data_file.close();
 }
 
-void BitcoinExchange::bitcoinExchangeFile(std::string fileName)
+int BitcoinExchange::bitcoinExchangeFile(std::string fileName)
 {
 	std::fstream	data_file;
 	std::string		line;
 
 	data_file.open(fileName.c_str(), std::ios::in);
-	if (!data_file.is_open())
+	if (!data_file.is_open() || bitcoinPrices.empty())
+	{
 		displayError("could not open file.", NULL);
+		return (-1);
+	}
 	std::getline(data_file, line);
 	while (std::getline(data_file, line))
 		displayDateValue(line);
 	data_file.close();
+	return (0);
 }
 
-void BitcoinExchange::displayError(std::string error, std::string *param)
-{
-	std::cout << "Error: " << error;
-	if (param)
-		std::cout << " => " << *param;
-	std::cout << std::endl;
-}
-
+// PRIVATE METHODS
 void BitcoinExchange::displayDateValue(std::string line)
 {
-	std::string 							date;
-	float									value;
-	float									total;
-	float									btcPrice;
+	std::string	date;
+	float		value;
+	float		total;
 
-	// getDateValueInput change name
-	if (getDateValue(line, date, &value) == -1)
+	if (getInputData(line, date, &value) == -1)
 		return ;
-	btcPrice = getBitcoinPrices(date);
-	std::cout << "teste: " << btcPrice << std::endl;
-
-	total = btcPrice * value;
+	total = getBitcoinPrices(date) * value;
 	std::cout << date << " => " << value << " = " << total << std::endl;
 }
 
-int BitcoinExchange::getDateValue(std::string line, std::string &date, float *value)
+int BitcoinExchange::getInputData(std::string line, std::string &date, float *value)
 {
 	size_t	pos;
 
@@ -108,7 +100,6 @@ float BitcoinExchange::getBitcoinPrices(std::string date)
 	it = bitcoinPrices.lower_bound(date);
 	begin = bitcoinPrices.begin();
 	end = --bitcoinPrices.end();
-
 	if (date.compare(begin->first) < 0)
 		return (0);
 	if (date.compare(end->first) > 0)
@@ -138,7 +129,7 @@ int BitcoinExchange::isValidDate(std::string date)
 	if (d < 0 || d > 31)
 		return (0);
     if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
-        return (0);
+		return (0);
 	if (((y % 4 == 0 && y % 100 != 0) || y % 400 == 0))
 	{
 		if (m == 2 && d > 29)
@@ -150,4 +141,12 @@ int BitcoinExchange::isValidDate(std::string date)
 			return (0);
 	}
 	return (1);
+}
+
+void BitcoinExchange::displayError(std::string error, std::string *param)
+{
+	std::cerr << "Error: " << error;
+	if (param)
+		std::cerr << " => " << *param;
+	std::cerr << std::endl;
 }
