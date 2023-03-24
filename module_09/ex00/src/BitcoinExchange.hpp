@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 10:22:00 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/24 16:20:19 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:17:19 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ class BitcoinExchange
 	public:
 				BitcoinExchange();
 				BitcoinExchange(std::string fileName);
+				BitcoinExchange(const BitcoinExchange& other);
+				~BitcoinExchange();
+				BitcoinExchange& operator=(const BitcoinExchange& other);
 		int		bitcoinExchangeFile(std::string fileName);
 };
 

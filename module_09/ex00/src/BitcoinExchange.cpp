@@ -6,11 +6,13 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 10:20:57 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/24 17:01:21 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:20:34 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+BitcoinExchange::BitcoinExchange(){}
 
 BitcoinExchange::BitcoinExchange(std::string fileName)
 {
@@ -33,6 +35,21 @@ BitcoinExchange::BitcoinExchange(std::string fileName)
 		}
 		data_file.close();
 	}
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+{
+	(*this) = other;
+}
+
+BitcoinExchange::~BitcoinExchange(){};
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
+{
+	if (this != &other)
+		this->bitcoinPrices.insert(other.bitcoinPrices.begin(),
+				other.bitcoinPrices.end());
+	return (*this);
 }
 
 int BitcoinExchange::bitcoinExchangeFile(std::string fileName)
@@ -89,7 +106,10 @@ int BitcoinExchange::getInputData(std::string line, std::string &date, float *va
 	}
 	date = line.substr(0, pos - 1);
 	if (!isValidDate(date))
+	{
 		displayError("not a valid date.", NULL);
+		return (-1);
+	}
 	return (0);
 }
 
@@ -119,7 +139,8 @@ int BitcoinExchange::isValidDate(std::string date)
 
 	fDash = date.find('-');
 	sDash = date.rfind('-');
-	if (fDash == std::string::npos || sDash == std::string::npos)
+	if (fDash == std::string::npos || sDash == std::string::npos 
+		|| fDash == sDash)
 		return (0);
 	y = std::atoi(date.substr(0, fDash).c_str());
 	m = std::atoi(date.substr(fDash + 1, sDash).c_str());
