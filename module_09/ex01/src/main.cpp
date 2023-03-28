@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:31:19 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/28 14:55:41 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:17:50 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int main(int argc, char **argv)
 	}
 	RPN rpn(argv[1]);
 	rpn.displayResult();
-
 	return (0);
 }

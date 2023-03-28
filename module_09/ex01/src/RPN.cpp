@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:36:34 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/28 17:55:04 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:15:49 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,32 @@
 
 #define END_EXPRESSION  2147483647
 
-RPN::RPN(): _expression("") {}
+RPN::RPN(): _expression("") 
+{
+	this->it = _expression.begin();
+}
 
 RPN::RPN(std::string expression): _expression(expression) 
 {
 	this->it = _expression.begin();
 }
 
+RPN::RPN(const RPN& other)
+{
+	(*this) = other;
+}
+
 RPN::~RPN() {}
+
+RPN& RPN::operator=(const RPN& other)
+{
+	if (this != &other)
+	{
+		this->_expression = other._expression;
+		this->it = this->_expression.begin();
+	}
+	return (*this);
+}
 
 void RPN::displayResult(void)
 {
@@ -62,7 +80,7 @@ int RPN::getNextElem(void)
 	}
 	else
 	    res = -1;
-	if(it !=  --(_expression.end()) && *(it + 1) != ' ')
+	if(it != --(_expression.end()) && *(it + 1) != ' ')
 		res = -1;
 	it++;
 	return (res);
