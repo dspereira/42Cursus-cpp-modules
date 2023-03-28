@@ -1,0 +1,30 @@
+
+NAME			= RPN
+
+SRCS			= ./src/main.cpp				\
+				  ./src/RPN.cpp
+
+OBJS		    = $(SRCS:.cpp=.o)
+
+CXX				= c++
+CXXFLAGS		= -std=c++98 #-Wshadow -Wall -Wextra -Werror -std=c++98
+RM				= rm -f
+
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	$(RM) $(OBJS)
+	
+fclean: clean
+	$(RM) $(NAME)
+
+re:	fclean all
+
+.PHONY: all clean fclean re
