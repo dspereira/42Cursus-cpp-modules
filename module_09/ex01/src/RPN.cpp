@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:36:34 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/28 17:24:26 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:55:04 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,14 @@ void RPN::displayResult(void)
 {
 	int elem;
 
-	if (_expression.size() == 0)
+	while (true)
 	{
-		std::cout << "Error" << std::endl;
-		return ;
-	}
-	elem = getNextElem();
-	while (elem != END_EXPRESSION)
-	{
-		if (elem == -1)
-		{
-			std::cout << "Error" << std::endl;
-			return ;
-		}
-		makeCalc(elem);
 		elem = getNextElem();
+		if (elem == -1 || elem == END_EXPRESSION)
+			break;
+		makeCalc(elem);
 	}
-	if (stack.size() == 1)
+	if (stack.size() == 1 && elem == END_EXPRESSION)
 		std::cout << stack.top() << std::endl;
 	else
 		std::cout << "Error" << std::endl;
@@ -64,7 +55,11 @@ int RPN::getNextElem(void)
 	if (*it > '0' && *it <= '9')
 		res = *it - '0';
 	else if (*it == '+' || *it == '-' || *it == '/' || *it == '*')
+	{
 		res = *it;
+		if (stack.size() == 1)
+			res = -1;
+	}
 	else
 	    res = -1;
 	if(it !=  --(_expression.end()) && *(it + 1) != ' ')
