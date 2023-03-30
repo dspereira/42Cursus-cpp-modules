@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/30 17:33:53 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:42:51 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void PmergeMe::sortList(char **args)
 	std::list<int> sortedList;
 
 	fillList(args);
-	sortedList = mergeSortList(&list, list.begin(), list.end());
+	sortedList = mergeSortList(&_list, _list.begin(), _list.end());
 	
 	// final result
 	std::cout << "Final result" << std::endl;
@@ -36,7 +36,7 @@ void PmergeMe::sortList(char **args)
 void PmergeMe::fillList(char **args)
 {
 	for (int i = 0; i < _size; i++)
-		list.push_back(std::atoi(args[i]));
+		_list.push_back(std::atoi(args[i]));
 }
 
 std::list<int> PmergeMe::mergeSortList(const std::list<int> *l, std::list<int>::iterator begin, std::list<int>::iterator end)
@@ -48,24 +48,16 @@ std::list<int> PmergeMe::mergeSortList(const std::list<int> *l, std::list<int>::
 	std::list<int>::iterator midIt;
 
 	list->assign(begin, end);
-
-	//-----------------------------------------------------
-	// Just debug
-	std::list<int>::iterator it;
-	for(it = list->begin(); it != list->end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	//-----------------------------------------------------
-
 	if (list->size() <= 1)
 		return (*list);
 	midIt = list->begin();	
-	for (int i = 0; i < (list->size() / 2); i++)
+	for (size_t i = 0; i < (list->size() / 2); i++)
 		midIt++;
 	l1 = mergeSortList(list, list->begin(), midIt);
 	l2 = mergeSortList(list, midIt, list->end());
 	res.merge(l1);
 	res.merge(l2);
+	(void) l;
 	delete list;
 	return (res);
 

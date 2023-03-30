@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:01:17 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/30 14:44:37 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:39:34 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static bool is_parameters_valid(char **args, int argc);
 
 int main(int argc, char **argv)
 {
-	char **args;
-
 	if (argc == 1)
 	{
 		std::cout << "Error: Wrong number of arguments" << std::endl;

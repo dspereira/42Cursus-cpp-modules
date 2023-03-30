@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:02:38 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/30 17:19:57 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:40:16 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 class PmergeMe
 {
 	private:
-	std::list<int>		list;
-	std::vector<int>	vector;
+	std::list<int>		_list;
+	std::vector<int>	_vector;
 	int					_size;
 
 	void fillList(char **args);
