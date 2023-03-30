@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:02:38 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/30 17:40:16 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:44:18 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PmergeMe
 	int					_size;
 
 	void fillList(char **args);
-	std::list<int> mergeSortList(const std::list<int> *l, std::list<int>::iterator begin, std::list<int>::iterator end);
+	std::list<int> mergeSortList(std::list<int>::iterator begin, std::list<int>::iterator end);
 
 	public:
 		PmergeMe();
