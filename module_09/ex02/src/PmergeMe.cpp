@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/30 17:49:18 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:43:52 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,11 @@ std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin, std::list
 	std::list<int>::iterator midIt;
 
 	list.assign(begin, end);
-	if (list.size() <= 1)
+	if (list.size() <= K)
+	{
+		insertionSortList(list);
 		return (list);
+	}
 	midIt = list.begin();	
 	for (size_t i = 0; i < (list.size() / 2); i++)
 		midIt++;
@@ -59,5 +62,36 @@ std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin, std::list
 	res.merge(l1);
 	res.merge(l2);
 	return (res);
+}
 
+void PmergeMe::insertionSortList(std::list<int> &list)
+{
+	std::list<int>::iterator it;
+	std::list<int>::iterator it1, it2;
+
+	int buff;
+
+	if (list.size() <= 1)
+		return ;
+	it = ++list.begin();
+	std::cout << "entra no sort" << std::endl;
+	while (it != list.end())
+	{
+		it1 = it;
+		it1--;
+		it2 = it;
+	
+		while (*it1 > *it2)
+		{
+			buff = *it1;
+			*it1 = *it2;
+			*it2 = buff;
+			if (it1 != list.begin())
+				it1--;
+			it2--;
+			if (it2 == list.begin())
+				break;
+		}
+		it++;
+	}
 }
