@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:02:38 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/31 16:22:35 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:45:02 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <ctime>
+#include <iomanip>
 
 #define K 3
 
@@ -25,6 +27,8 @@ class PmergeMe
 	private:
 		std::list<int>		_list;
 		std::vector<int>	_vector;
+		double				_listSortTimeSec;
+		double				_vectorSortTimeSec;
 		int					_size;
 
 		void fillList(char **args);

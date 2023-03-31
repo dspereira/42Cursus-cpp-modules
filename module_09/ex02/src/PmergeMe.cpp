@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/31 16:31:06 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:49:42 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ PmergeMe::~PmergeMe() {}
 
 void PmergeMe::sortList(char **args)
 {
-	std::list<int> sortedList;
+	std::list<int>	sortedList;
+	clock_t			ticks;
 
+	ticks = clock();
 	fillList(args);
 	_list = mergeSortList(_list.begin(), _list.end());
-	
+	_listSortTimeSec = (double)(clock() - ticks) / CLOCKS_PER_SEC;
 
-	
 	// Just for debug
 	std::cout << "Final result" << std::endl;
+	std::cout << "Time: ";
+	std::cout << std::fixed << std::setprecision(6) << _listSortTimeSec << " sec" << std::endl;
 	std::list<int>::iterator it;
 	for(it = _list.begin(); it != _list.end(); it++)
 		std::cout << *it << " ";
