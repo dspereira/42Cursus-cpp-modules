@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/31 12:43:52 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:31:06 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ void PmergeMe::sortList(char **args)
 	std::list<int> sortedList;
 
 	fillList(args);
-	//sortedList = mergeSortList(&_list, _list.begin(), _list.end());
-	sortedList = mergeSortList(_list.begin(), _list.end());
+	_list = mergeSortList(_list.begin(), _list.end());
 	
-	// final result
+
+	
+	// Just for debug
 	std::cout << "Final result" << std::endl;
 	std::list<int>::iterator it;
-	for(it = sortedList.begin(); it != sortedList.end(); it++)
+	for(it = _list.begin(); it != _list.end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
 }
@@ -66,31 +67,27 @@ std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin, std::list
 
 void PmergeMe::insertionSortList(std::list<int> &list)
 {
-	std::list<int>::iterator it;
-	std::list<int>::iterator it1, it2;
-
-	int buff;
+	std::list<int>::iterator	it;
+	std::list<int>::iterator	it1;
+	std::list<int>::iterator	it2;
+	int							buff;
 
 	if (list.size() <= 1)
 		return ;
 	it = ++list.begin();
-	std::cout << "entra no sort" << std::endl;
 	while (it != list.end())
 	{
-		it1 = it;
-		it1--;
+		(it1 = it)--;
 		it2 = it;
-	
 		while (*it1 > *it2)
 		{
 			buff = *it1;
 			*it1 = *it2;
 			*it2 = buff;
-			if (it1 != list.begin())
-				it1--;
-			it2--;
-			if (it2 == list.begin())
+			if (it1 == list.begin())
 				break;
+			it1--;
+			it2--;
 		}
 		it++;
 	}
