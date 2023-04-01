@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/04/01 15:26:07 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:46:11 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void PmergeMe::sortList(char **args, int size)
 	std::cout << std::endl;*/
 }
 
-std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin, std::list<int>::iterator end)
+std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin,
+	std::list<int>::iterator end)
 {
 	std::list<int> list;
 	std::list<int> l1;
@@ -51,7 +52,7 @@ std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin, std::list
 		insertionSortList(list);
 		return (list);
 	}
-	midIt = list.begin();	
+	midIt = list.begin();
 	for (size_t i = 0; i < (list.size() / 2); i++)
 		midIt++;
 	l1 = mergeSortList(list.begin(), midIt);
@@ -63,9 +64,7 @@ std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin, std::list
 
 void PmergeMe::insertionSortList(std::list<int> &list)
 {
-	std::list<int>::iterator	it;
-	std::list<int>::iterator	it1;
-	std::list<int>::iterator	it2;
+	std::list<int>::iterator	it, it1, it2;
 	int							buff;
 
 	if (list.size() <= 1)
@@ -87,6 +86,144 @@ void PmergeMe::insertionSortList(std::list<int> &list)
 		}
 		it++;
 	}
+}
+
+void PmergeMe::sortVector(char **args, int size)
+{
+	std::vector<int>	sortedVector;
+	clock_t				ticks;
+
+	ticks = clock();
+	for (int i = 0; i < size; i++)
+		_vector.push_back(std::atoi(args[i]));
+	_vector = mergeSortVector(_vector.begin(), _vector.end());
+	_vectorSortTimeSec = (double)(clock() - ticks) / CLOCKS_PER_SEC;	
+
+	std::cout << "Final result Vector" << std::endl;
+	std::cout << "Time: ";
+	std::cout << std::fixed << std::setprecision(6) << _vectorSortTimeSec << " sec" << std::endl;
+	std::vector<int>::iterator it;
+	for(it = _vector.begin(); it != _vector.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
+
+std::vector<int> PmergeMe::mergeSortVector(std::vector<int>::iterator begin,
+	std::vector<int>::iterator end)
+{
+	std::vector<int> vector;
+	std::vector<int> v1, v2;
+	std::vector<int> res;
+	std::vector<int>::iterator midIt;
+
+	vector.assign(begin, end);
+	if (vector.size() <= K)
+	{
+		insertionSortVector(vector);
+		return (vector);
+	}
+	midIt = vector.begin();
+	for (size_t i = 0; i < (vector.size() / 2); i++)
+		midIt++;
+	v1 = mergeSortVector(vector.begin(), midIt);
+	v2 = mergeSortVector(midIt, vector.end());
+	res = mergeVectors(v1, v2);
+	return (res);
+}
+
+void PmergeMe::insertionSortVector(std::vector<int> &vector)
+{
+	std::vector<int>::iterator	it;
+	std::vector<int>::iterator	it1, it2;
+	int							buff;
+
+	if (vector.size() <= 1)
+		return ;
+	it = ++vector.begin();
+	while (it != vector.end())
+	{
+		(it1 = it)--;
+		it2 = it;
+		while (*it1 > *it2)
+		{
+			buff = *it1;
+			*it1 = *it2;
+			*it2 = buff;
+			if (it1 == vector.begin())
+				break;
+			it1--;
+			it2--;
+		}
+		it++;
+	}	
+}
+
+/*
+std::vector<int> PmergeMe::mergeVectors(std::vector<int> &v1, std::vector<int> &v2)
+{
+	std::vector<int>			res;
+	std::vector<int>::iterator	it1, it2;
+	std::vector<int>::iterator	v1End, v2End;
+
+	it1 = v1.begin();
+	it2 = v2.begin();
+	v1End = v1.end();
+	v2End = v2.end();
+	while (it1 != v1End || it2 != v2End)
+	{
+		if (it1 != v1End && it2 == v2End) {
+			res.push_back(*it1);
+			it1++;
+		}
+		else if (it2 != v2End && it1 == v1End) {
+			res.push_back(*it2);
+			it2++;	
+		}
+		else if (*it1 < *it2) {
+			res.push_back(*it1);
+			it1++;
+		}
+		else {
+			res.push_back(*it2);
+			it2++;
+		}
+	}
+	return (res);
+}
+*/
+
+std::vector<int> PmergeMe::mergeVectors(std::vector<int> &v1, std::vector<int> &v2)
+{
+	std::vector<int>			res;
+	std::vector<int>::iterator	it1, it2;
+	std::vector<int>::iterator	v1End, v2End;
+
+	it1 = v1.begin();
+	it2 = v2.begin();
+	v1End = v1.end();
+	v2End = v2.end();
+	while (it1 != v1End || it2 != v2End)
+	{
+		/*if (it1 != v1End && it2 == v2End) {
+			res.push_back(*it1);
+			it1++;
+		}
+		else if (it2 != v2End && it1 == v1End) {
+			res.push_back(*it2);
+			it2++;	
+		}*/
+		if (it1 != v1End && *it1 < *it2)
+		{
+			res.push_back(*it1);
+			it1++;
+		}
+		else
+		{
+			res.push_back(*it2);
+			it2++;
+		}
+	}
+	return (res);
 }
 
 void PmergeMe::displayInfo(char **args, int size)

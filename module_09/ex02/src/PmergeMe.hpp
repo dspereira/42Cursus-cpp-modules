@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:02:38 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/04/01 14:47:14 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:42:40 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ class PmergeMe
 
 		std::list<int> mergeSortList(std::list<int>::iterator begin, std::list<int>::iterator end);
 		void insertionSortList(std::list<int> &list);
+
+		std::vector<int> mergeSortVector(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void insertionSortVector(std::vector<int> &vector);
+		std::vector<int> mergeVectors(std::vector<int> &v1, std::vector<int> &v2);
 
 	public:
 		PmergeMe();
