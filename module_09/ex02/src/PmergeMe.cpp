@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/04/01 19:46:11 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:00:16 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@ void PmergeMe::sortList(char **args, int size)
 		_list.push_back(std::atoi(args[i]));
 	_list = mergeSortList(_list.begin(), _list.end());
 	_listSortTimeSec = (double)(clock() - ticks) / CLOCKS_PER_SEC;
-
-	// Just for debug
-	/*std::cout << "Final result" << std::endl;
-	std::cout << "Time: ";
-	std::cout << std::fixed << std::setprecision(6) << _listSortTimeSec << " sec" << std::endl;
-	std::list<int>::iterator it;
-	for(it = _list.begin(); it != _list.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;*/
 }
 
 std::list<int> PmergeMe::mergeSortList(std::list<int>::iterator begin,
@@ -97,15 +88,7 @@ void PmergeMe::sortVector(char **args, int size)
 	for (int i = 0; i < size; i++)
 		_vector.push_back(std::atoi(args[i]));
 	_vector = mergeSortVector(_vector.begin(), _vector.end());
-	_vectorSortTimeSec = (double)(clock() - ticks) / CLOCKS_PER_SEC;	
-
-	std::cout << "Final result Vector" << std::endl;
-	std::cout << "Time: ";
-	std::cout << std::fixed << std::setprecision(6) << _vectorSortTimeSec << " sec" << std::endl;
-	std::vector<int>::iterator it;
-	for(it = _vector.begin(); it != _vector.end(); it++)
-		std::cout << *it << " ";
-	std::cout << std::endl;
+	_vectorSortTimeSec = (double)(clock() - ticks) / CLOCKS_PER_SEC;
 }
 
 std::vector<int> PmergeMe::mergeSortVector(std::vector<int>::iterator begin,
@@ -158,7 +141,6 @@ void PmergeMe::insertionSortVector(std::vector<int> &vector)
 	}	
 }
 
-/*
 std::vector<int> PmergeMe::mergeVectors(std::vector<int> &v1, std::vector<int> &v2)
 {
 	std::vector<int>			res;
@@ -184,41 +166,6 @@ std::vector<int> PmergeMe::mergeVectors(std::vector<int> &v1, std::vector<int> &
 			it1++;
 		}
 		else {
-			res.push_back(*it2);
-			it2++;
-		}
-	}
-	return (res);
-}
-*/
-
-std::vector<int> PmergeMe::mergeVectors(std::vector<int> &v1, std::vector<int> &v2)
-{
-	std::vector<int>			res;
-	std::vector<int>::iterator	it1, it2;
-	std::vector<int>::iterator	v1End, v2End;
-
-	it1 = v1.begin();
-	it2 = v2.begin();
-	v1End = v1.end();
-	v2End = v2.end();
-	while (it1 != v1End || it2 != v2End)
-	{
-		/*if (it1 != v1End && it2 == v2End) {
-			res.push_back(*it1);
-			it1++;
-		}
-		else if (it2 != v2End && it1 == v1End) {
-			res.push_back(*it2);
-			it2++;	
-		}*/
-		if (it1 != v1End && *it1 < *it2)
-		{
-			res.push_back(*it1);
-			it1++;
-		}
-		else
-		{
 			res.push_back(*it2);
 			it2++;
 		}
