@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:01:17 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/04/01 16:14:36 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:34:38 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	PmergeMe merge;
+
 	merge.sortList(&argv[1], argc - 1);
 	merge.sortVector(&argv[1], argc - 1);
 	merge.displayInfo(&argv[1], argc - 1);

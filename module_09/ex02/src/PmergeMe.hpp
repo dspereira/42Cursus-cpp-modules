@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:02:38 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/04/01 19:59:53 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/02 09:59:07 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ class PmergeMe
 
 	public:
 		PmergeMe();
-		PmergeMe(int size);
 		PmergeMe(const PmergeMe& other);
 		~PmergeMe();
 		PmergeMe& operator=(const PmergeMe& other);

@@ -6,7 +6,7 @@
 /*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:13:23 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/04/01 20:00:16 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:36:09 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,24 @@
 
 PmergeMe::PmergeMe() {}
 
+PmergeMe::PmergeMe(const PmergeMe& other)
+{
+	(*this) = other;
+}
+
 PmergeMe::~PmergeMe() {}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
+{
+	if (this != &other)
+	{
+		this->_list = other._list;
+		this->_vector = other._vector;
+		this->_listSortTimeSec = other._listSortTimeSec;
+		this->_vectorSortTimeSec = other._vectorSortTimeSec;
+	}
+	return (*this);
+}
 
 void PmergeMe::sortList(char **args, int size)
 {
