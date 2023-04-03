@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsilveri <dsilveri@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: dsilveri <dsilveri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:36:34 by dsilveri          #+#    #+#             */
-/*   Updated: 2023/03/28 18:15:49 by dsilveri         ###   ########.fr       */
+/*   Updated: 2023/04/03 15:17:45 by dsilveri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ void RPN::displayResult(void)
 		elem = getNextElem();
 		if (elem == -1 || elem == END_EXPRESSION)
 			break;
-		makeCalc(elem);
+		if (makeCalc(elem) == -1)
+		{
+			std::cout << "Error" << std::endl;
+			return ;
+		}
+			
 	}
 	if (stack.size() == 1 && elem == END_EXPRESSION)
 		std::cout << stack.top() << std::endl;
@@ -70,12 +75,12 @@ int RPN::getNextElem(void)
 	}
 	if (it == _expression.end())
 		return (END_EXPRESSION);
-	if (*it > '0' && *it <= '9')
+	if (*it >= '0' && *it <= '9')
 		res = *it - '0';
 	else if (*it == '+' || *it == '-' || *it == '/' || *it == '*')
 	{
 		res = *it;
-		if (stack.size() == 1)
+		if (stack.size() < 2)
 			res = -1;
 	}
 	else
@@ -98,6 +103,7 @@ int RPN::makeCalc(int elem)
 	{
 		n2 = getElemTopAndRemove();
 		n1 = getElemTopAndRemove();
+		
 		if (elem == '+')
 			res = n1 + n2;
 		else if (elem == '-')
@@ -105,7 +111,11 @@ int RPN::makeCalc(int elem)
 		else if (elem == '*')
 			res = n1 * n2;
 		else if (elem == '/')
+		{
+			if (!n2)
+				return (-1);
 			res = n1 / n2;
+		}
 		stack.push(res);
 	}
 	return (0);
