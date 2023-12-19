@@ -1,6 +1,12 @@
 # 42Cursus-cpp-modules
 
 
+## Modules
+
+| Module | Content | Subject | Grade |
+| --- | --- | --- | --- |
+| [module_00](https://github.com/dspereira/42Cursus-cpp-modules/tree/main/module_00) | Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuf | subject | 100% |
+
 ## Installation / Usage
 
 This project is designed to work on Linux and macOS.
