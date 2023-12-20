@@ -33,10 +33,6 @@ Build:
 ```shell
 make
 ```
-or
-```shell
-make re
-```
 Run the executable:
 ```shell
 ./megaphone
